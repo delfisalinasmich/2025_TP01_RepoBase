@@ -16,3 +16,13 @@ Este documento registra las decisiones técnicas y estratégicas tomadas durante
     2.  `feat: Actualiza archivo de datos...`: Actualiza la información relacionada.
 
 Esta separación asegura que cada commit tenga una única responsabilidad, lo que facilita la revisión del código, la identificación de errores (`git bisect`) y la posibilidad de revertir cambios específicos sin afectar otros. Los mensajes siguen la convención de "Conventional Commits" para aportar claridad semántica al historial.
+
+## 3. Corrección de Error Urgente (Hotfix)
+
+- **Simulación y Aislamiento:** Se simuló un error directamente en `main` para replicar un escenario de producción. Para corregirlo, se creó una rama `hotfix/corregir-readme` a partir de `main`. Esta estrategia (Git Flow) permite desarrollar una solución urgente sin interferir con la rama `main` ni con las ramas `feature` en curso.
+
+- **Estrategia de Integración:**
+    - **Hacia `main`:** Se utilizó `git merge`. El merge es ideal en este caso porque es una operación no destructiva que integra el historial completo del hotfix en la rama principal, manteniendo una trazabilidad clara y explícita de la corrección.
+    - **Hacia `feature/mejorar-saludo`:** También se usó `git merge` desde `main` hacia la rama de feature. Esto asegura que la rama de desarrollo se mantenga sincronizada con la base de código de producción, incorporando correcciones críticas y previniendo futuros conflictos de integración. Se prefirió `merge` sobre `cherry-pick` para traer no solo este fix, sino cualquier otro cambio que pudiera haber en `main`.
+
+- **Limpieza:** Una vez integrado, la rama `hotfix` fue eliminada tanto localmente como en el repositorio remoto, ya que cumplió su propósito y ya no es necesaria.
