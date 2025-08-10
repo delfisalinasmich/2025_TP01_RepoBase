@@ -1,6 +1,6 @@
-// Versión inicial
-function saludar() {
-    console.log("Hola mundo");
+// Versión mejorada que acepta un nombre
+function saludar(nombre) {
+  console.log(`Hola, ${nombre}! Bienvenido/a.`);
 }
 
-saludar();
+saludar("Usuario Alfa");
