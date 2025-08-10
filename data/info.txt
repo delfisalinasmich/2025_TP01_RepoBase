@@ -1,4 +1,3 @@
 Este archivo contiene datos de ejemplo para practicar Git.
 Línea 1: Información inicial.
 Línea 2: Se añade información para la nueva funcionalidad de saludo.
-Línea 3: Información experimental que no debería estar aquí.
