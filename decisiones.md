@@ -6,3 +6,13 @@ Este documento registra las decisiones técnicas y estratégicas tomadas durante
 
 - **Flujo de Trabajo Inicial:** Se optó por realizar un **Fork** del repositorio base en lugar de un clon directo. Esta decisión simula un entorno de trabajo colaborativo estándar (como en el open-source), donde no se tiene acceso de escritura directo al repositorio original. Permite trabajar en una copia personal de forma aislada y proponer cambios mediante Pull Requests.
 - **Identidad en Git:** Se comprobo la identidad local (`user.name` y `user.email`) para asegurar la correcta autoría de los commits. Esto es un pilar fundamental para la trazabilidad en cualquier proyecto.
+
+## 2. Desarrollo de Nueva Funcionalidad (feature/mejorar-saludo)
+
+- **Estrategia de Ramas:** Se creó una rama `feature/mejorar-saludo` a partir de `main`. Esta práctica es esencial para aislar el desarrollo de nuevas funcionalidades, evitando desestabilizar la rama principal (`main`), que se considera código en producción. El nombre sigue la convención `tipo/descripcion-corta`.
+
+- **Commits Atómicos:** El trabajo se dividió en dos commits:
+    1.  `feat: Permite personalizar el saludo...`: Modifica la lógica de la aplicación.
+    2.  `feat: Actualiza archivo de datos...`: Actualiza la información relacionada.
+
+Esta separación asegura que cada commit tenga una única responsabilidad, lo que facilita la revisión del código, la identificación de errores (`git bisect`) y la posibilidad de revertir cambios específicos sin afectar otros. Los mensajes siguen la convención de "Conventional Commits" para aportar claridad semántica al historial.
