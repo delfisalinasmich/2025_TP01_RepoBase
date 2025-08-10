@@ -26,3 +26,10 @@ Esta separación asegura que cada commit tenga una única responsabilidad, lo qu
     - **Hacia `feature/mejorar-saludo`:** También se usó `git merge` desde `main` hacia la rama de feature. Esto asegura que la rama de desarrollo se mantenga sincronizada con la base de código de producción, incorporando correcciones críticas y previniendo futuros conflictos de integración. Se prefirió `merge` sobre `cherry-pick` para traer no solo este fix, sino cualquier otro cambio que pudiera haber en `main`.
 
 - **Limpieza:** Una vez integrado, la rama `hotfix` fue eliminada tanto localmente como en el repositorio remoto, ya que cumplió su propósito y ya no es necesaria.
+
+
+## 4. Integración mediante Pull Request (PR)
+
+- **Proceso:** La rama `feature/mejorar-saludo` se integró a `main` a través de un Pull Request en GitHub. Este mecanismo es estándar en flujos de trabajo colaborativos, ya que formaliza la propuesta de cambio y abre un espacio para la revisión de código (`code review`), asegurando la calidad antes de que el código llegue a la rama principal.
+
+- **Merge y Limpieza:** Se utilizó la estrategia de "Merge Commit" por defecto de GitHub. Tras la fusión exitosa, la rama `feature/mejorar-saludo` fue eliminada tanto en el repositorio remoto como en el local para mantener el repositorio limpio y evitar la acumulación de ramas obsoletas.
