@@ -33,3 +33,17 @@ Esta separación asegura que cada commit tenga una única responsabilidad, lo qu
 - **Proceso:** La rama `feature/mejorar-saludo` se integró a `main` a través de un Pull Request en GitHub. Este mecanismo es estándar en flujos de trabajo colaborativos, ya que formaliza la propuesta de cambio y abre un espacio para la revisión de código (`code review`), asegurando la calidad antes de que el código llegue a la rama principal.
 
 - **Merge y Limpieza:** Se utilizó la estrategia de "Merge Commit" por defecto de GitHub. Tras la fusión exitosa, la rama `feature/mejorar-saludo` fue eliminada tanto en el repositorio remoto como en el local para mantener el repositorio limpio y evitar la acumulación de ramas obsoletas.
+
+## 5. Creación de una Versión Etiquetada (Tagging)
+
+- **Convención de Versionado:** Se utilizó el versionado semántico (SemVer) para nombrar la etiqueta. Se creó el tag `v1.0` para marcar la primera versión estable del proyecto. La `v` inicial es una convención común para denotar "versión".
+
+- **Tipo de Tag:** Se optó por un **tag anotado** (`git tag -a`) en lugar de uno ligero. Los tags anotados son tratados como objetos completos en la base de datos de Git y almacenan metadatos adicionales (autor, fecha, mensaje), lo cual es crucial para la trazabilidad de los lanzamientos oficiales.
+
+- **Publicación:** El tag fue subido explícitamente al repositorio remoto (`git push origin v1.0`), ya que los tags no se transfieren con un `git push` estándar. Esto hace que la versión sea visible y accesible para todo el equipo.
+
+## 6. Conclusiones y Buenas Prácticas
+
+- **Flujo de Trabajo:** El flujo seguido (una mezcla de GitHub Flow y conceptos de Git Flow) demostró ser eficaz para manejar desarrollo paralelo (feature) y correcciones urgentes (hotfix) sin conflictos.
+- **Trazabilidad:** El uso de ramas descriptivas, commits atómicos con mensajes convencionales y un archivo de decisiones permite reconstruir la historia del proyecto y entender el "porqué" de cada cambio.
+- **Calidad en un Equipo Real:** Para asegurar la calidad, se implementarían Pull Requests obligatorios con revisiones de al menos un colega, integración continua (CI) para correr pruebas automáticas en cada PR, y políticas de protección de la rama `main` para evitar pushes directos.
